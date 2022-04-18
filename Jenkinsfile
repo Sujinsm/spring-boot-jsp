@@ -29,10 +29,10 @@ pipeline {
             steps {
                 sh '''
                     version=$(perl -nle 'print "$1" if /<version>(v\\d+\\.\\d+\\.\\d+)<\\/version>/' pom.xml)
-                    #rsync -avzP target/news-${version}.jar jenkins@${SERVER_IP}:/opt/
+                    rsync -avzP target/news-${version}.jar sujin@${SERVER_IP}:/opt/
                     whoami
                     #su sujin
-                    cp target/news-${version}.jar /var/www/html
+                    #cp target/news-${version}.jar /var/www/html
                 '''
             }
         }
