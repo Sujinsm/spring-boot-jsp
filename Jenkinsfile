@@ -6,7 +6,7 @@ pipeline {
     }
     
     parameters {
-        string(name: 'SERVER_IP', defaultValue: '127.0.0.1', description: 'Provide production server IP Address.')
+        string(name: 'SERVER_IP', defaultValue: 'localhost', description: 'Provide production server IP Address.')
     }
 
     stages {
