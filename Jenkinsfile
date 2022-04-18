@@ -6,7 +6,7 @@ pipeline {
     }
     
     parameters {
-        string(name: 'SERVER_IP', defaultValue: 'localhost', description: 'Provide production server IP Address.')
+        string(name: 'SERVER_IP', defaultValue: '34.125.57.72', description: 'Provide production server IP Address.')
     }
 
     stages {
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 sh '''
                     version=$(perl -nle 'print "$1" if /<version>(v\\d+\\.\\d+\\.\\d+)<\\/version>/' pom.xml)
-                    java -jar -Dserve.port=8085 target/news-${version}.jar
+                    java -jar -Dserver.port=8085 target/news-${version}.jar
                     #rsync -avzP target/news-${version}.jar root@${SERVER_IP}:/opt/
                     #whoami
                     #su sujin
